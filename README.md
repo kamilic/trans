@@ -2,7 +2,7 @@
 
 Transforming your structures in declarative way.
 
-# Usage
+## Usage
 
 ### a basic usage
 
