@@ -1,0 +1,29 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+stages: 
+- stage: build
+  jobs: 
+  - job: 'build_linux'
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+    - task: NodeTool@0 
+      inputs:
+        versionSpec: '10.x' 
+    - script: npm i 
+    - script: npm run build
+- stage: Test
+  jobs:
+  - job: 'test_linux'
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+    - task: NodeTool@0 
+      inputs:
+        versionSpec: '10.x'
+    - script: npm i
+    - script: npm run build
+    - script: npm run test:ci

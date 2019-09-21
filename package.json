@@ -1,0 +1,32 @@
+{
+  "name": "@kamilic/trans",
+  "version": "0.0.1",
+  "description": "Transforming your structures in declarative way",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "dev": "tsc --watch",
+    "test": "jest",
+    "test:ci": "npm run test && codecov",
+    "lint": "eslint ./src/*",
+    "lint:fix": "prettier ./src/* --write && eslint ./src/* --fix",
+    "npm:publish": "npm publish --registry=https://registry.npmjs.org --access=public",
+    "build": "tsc",
+    "prepublishOnly": "npm run test",
+    "postinstall": "npm run build && npm run test"
+  },
+  "author": "kamilic",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^12.7.1",
+    "@typescript-eslint/eslint-plugin": "^2.0.0",
+    "@typescript-eslint/parser": "^2.0.0",
+    "codecov": "^3.5.0",
+    "eslint": "^6.2.1",
+    "husky": "^3.0.4",
+    "jest": "^24.9.0",
+    "power-assert": "^1.6.1",
+    "prettier": "^1.18.2",
+    "typescript": "^3.5.3"
+  }
+}
